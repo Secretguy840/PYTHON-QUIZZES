@@ -1,0 +1,55 @@
+class Quiz:
+    def __init__(self):
+        self.questions = [
+            {
+                "question": "Who won the 2024 US Presidential Election?",
+                "options": ["A) Joe Biden", "B) Donald Trump", "C) Kamala Harris", "D) Ron DeSantis"],
+                "answer": "A"
+            },
+            {
+                "question": "What country hosted the 2024 Summer Olympics?",
+                "options": ["A) France", "B) Japan", "C) USA", "D) Brazil"],
+                "answer": "A"
+            },
+            {
+                "question": "Which country recently announced the successful launch of its first space station in 2024?",
+                "options": ["A) India", "B) China", "C) Russia", "D) USA"],
+                "answer": "B"
+            },
+            {
+                "question": "In 2024, who became the new Prime Minister of the United Kingdom?",
+                "options": ["A) Rishi Sunak", "B) Keir Starmer", "C) Boris Johnson", "D) Liz Truss"],
+                "answer": "A"
+            },
+            {
+                "question": "What major environmental summit was held in 2024?",
+                "options": ["A) COP28", "B) COP30", "C) UNFCCC", "D) G7 Summit"],
+                "answer": "A"
+            }
+        ]
+        self.score = 0
+
+    def ask_question(self, question_data):
+        print(question_data['question'])
+        for option in question_data['options']:
+            print(option)
+        user_answer = input("Please enter your answer (A, B, C, D): ").strip().upper()
+        if user_answer == question_data['answer']:
+            print("Correct!\n")
+            return True
+        else:
+            print(f"Wrong! The correct answer is {question_data['answer']}\n")
+            return False
+
+    def start_quiz(self):
+        print("Welcome to the 2024 GK and Current Affairs Quiz!\n")
+        for question in self.questions:
+            if self.ask_question(question):
+                self.score += 1
+
+        print(f"Quiz Over! You scored {self.score} out of {len(self.questions)}.")
+
+
+if __name__ == "__main__":
+    quiz = Quiz()
+    quiz.start_quiz()
